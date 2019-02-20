@@ -1,5 +1,7 @@
 ### How to install
+```Javascript
     npm install --save linked-list-dtx
+```    
 ### How to use
 ```Javascript
     let list = new LinkedList(...values); // create a linked list
