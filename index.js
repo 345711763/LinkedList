@@ -140,4 +140,4 @@ LinkedList.prototype.toString = function(){
   }
 };
 
-export default LinkedList;
+module.exports = LinkedList;
