@@ -1,6 +1,6 @@
 {
   "name": "linked-list-dtx",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This package enble you to use linked list in javascript",
   "main": "index.js",
   "scripts": {
