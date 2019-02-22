@@ -1,3 +1,4 @@
+
 ### How to install
 ```Javascript
     npm install --save linked-list-dtx
@@ -8,13 +9,20 @@
 ```    
 ###### Available Methods
 ```Javascript
-    list.add(value)         // add a Node to the end of list
-    list.findNode(value)    // Return the first node whose value is equal to input value. If no such node, return null;
-    list.findeNodes(value)  // Return an array of nodes whose value is equal to input value. If no such node, return an empty array 
-    list.deleteNode(value)  // Delete the first node whose value is equal to input value. If there is one to delete, return true.
-                            //If no such node to delete, return false;
-    list.last()             //Return the last node
-    list.toString()         //Return a string to show the list.
+    add(value)              // Add a Node to the end of list
+    findNode(val)           // Return the first node whose value is equal to input value. If no such node, return null;
+    findeNodes(val)         // Return an array of nodes whose value is equal to input value. If no such node, return an empty array 
+    findByIndex(index)      // Return the Node at certain index. If no such node, return null; 
+    deleteNode(val)         // Delete the first node whose value is equal to input value. If there is one to delete, return true.If no such node to delete, return false;
+    deleteNodes(val)        // Delete all Nodes whose value is equal to input value.If there is one to delete, return true.If no such node to delete, return false;
+    deleteByIndex(index)    // Delete Node at certain index. Return true if one node is deleted, false if no node at input index.
+    indexOf(val)            // Return the index of the first Node whose value is equal to input value. Return -1 if no such node. 
+    reverse()               // Reverse the list
+    insertBefore(val,index) // Insert a Node before the Node at certain index. Return true if success, false if can't find Node at input index.
+    insertAfter(val,index)  // Insert a Node after the Node at certain index. Return true if success, false if can't find Node at input index.
+    
+    last()                  // Return the last node
+    toString()              // Return a string to show the list.
 ```    
 ### Example
 ```Javascript
@@ -29,4 +37,5 @@
     console.log(list.deleteNode(1));            //True
     console.log(list.toString());               //"3 4 5 3 1"
     console.log(list.last());                   //{value:1, next:null}
+   
 ```
