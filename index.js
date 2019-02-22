@@ -105,7 +105,29 @@ LinkedList.prototype.deleteNode = function(value){
 };
 //删除所有具有该value的Node节点,如果删除了一个元素则返回true,如果没有则返回false
 LinkedList.prototype.deleteNodes = function(value){
-
+    //如果list为空，则return false;
+    if(this.length === 0){
+        return false;
+    }
+    //当list不为空,遍历list,每找到一个匹配的Node,把这个value的
+    let prev = null;
+    let current = this.root;
+    let didDelete = false;
+    while(current !== null){
+        if(current.value === value){
+            if(prev === null){
+                this.root = current.next;
+            }else{
+                prev.next = current.next;
+            }
+            this.length --;
+            didDelete = true;
+        }else{
+            prev = current;
+        }
+        current = current.next;
+    }
+    return didDelete;
 };
 //得到最后一个Node
 LinkedList.prototype.lastNode = function(){
@@ -138,6 +160,10 @@ LinkedList.prototype.toString = function(){
       }
       return str;
   }
+};
+//revert list
+LinkedList.prototype.reverse = function(){
+    
 };
 
 module.exports = LinkedList;
