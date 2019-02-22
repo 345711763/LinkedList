@@ -12,11 +12,14 @@
     "linked_list",
     "linked-list",
     "javascript",
-    "linked list"
+    "linked list",
+    "链表",
+    "邻接链表"
   ],
   "author": "Tianxiao Deng",
   "license": "MIT",
   "devDependencies": {
+    "chai": "^4.2.0",
     "mocha": "^6.0.0"
   }
 }

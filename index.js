@@ -60,14 +60,8 @@ LinkedList.prototype.reverse = reverse; //翻转list
 LinkedList.prototype.insertBefore = insertBefore; //找到指定下标的Node,在它之前插入带有指定value的新Node. 如果指定下标的Node不存在，返回false,否则返回true;
 
 LinkedList.prototype.insertAfter = insertAfter; //找到指定下标的Node,在它之后插入带有指定value的新Node. 如果指定下标的Node补存在，返回false,否则返回true;
-LinkedList.prototype.findByIndex = findByIndex; //成功找到一个Node,return true. 没能找到, return false
+LinkedList.prototype.findByIndex = findByIndex; //找到一个具有这个value的Node,返回一个Node, 没找到则返回null
 
 LinkedList.prototype.deleteByIndex = deleteByIndex;
-
-let ls = new LinkedList(2,3);
-
-console.log(ls.insertBefore(5,1));
-console.log(ls.addNode(66));
-console.log(ls.toString());
 
 module.exports = LinkedList;
