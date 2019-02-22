@@ -18,7 +18,7 @@
 ```    
 ### Example
 ```Javascript
-    const LinkedList = require("LinkedList");
+    const LinkedList = require("linked-list-dtx");
     let list = new LinkedList(1,3,4,5,3);
     console.log(list.toString());               // "1 3 4 5 3"
     
