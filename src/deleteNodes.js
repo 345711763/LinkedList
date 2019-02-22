@@ -23,5 +23,4 @@ function deleteNodes(value){
     }
     return didDelete;
 }
-
 module.exports = deleteNodes;

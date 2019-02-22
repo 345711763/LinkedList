@@ -3,10 +3,14 @@ const deleteNode = require("./src/deleteNode");
 const deleteNodes = require("./src/deleteNodes");
 const findNode = require("./src/findNode");
 const findNodes = require("./src/findNodes");
+const findByIndex = require("./src/findByIndex");
+const deleteByIndex = require("./src/deleteByIndex");
 const indexOf = require("./src/indexOf");
 const reverse = require("./src/reverse");
 const toString = require("./src/toString");
 const lastNode = require("./src/lastNode");
+const insertBefore = require("./src/insertBefore");
+const insertAfter = require("./src/insertAfter");
 const Node = require("./src/Node");
 
 //一个linkedList 对象有两个属性 head和length
@@ -52,5 +56,18 @@ LinkedList.prototype.toString = toString; //把LinkedList转换成字符串输�
 LinkedList.prototype.indexOf = indexOf; //找到并且返回第一个value匹配的Node的下标,找不到则返回-1
 
 LinkedList.prototype.reverse = reverse; //翻转list
+
+LinkedList.prototype.insertBefore = insertBefore; //找到指定下标的Node,在它之前插入带有指定value的新Node. 如果指定下标的Node不存在，返回false,否则返回true;
+
+LinkedList.prototype.insertAfter = insertAfter; //找到指定下标的Node,在它之后插入带有指定value的新Node. 如果指定下标的Node补存在，返回false,否则返回true;
+LinkedList.prototype.findByIndex = findByIndex; //成功找到一个Node,return true. 没能找到, return false
+
+LinkedList.prototype.deleteByIndex = deleteByIndex;
+
+let ls = new LinkedList(2,3);
+
+console.log(ls.insertBefore(5,1));
+console.log(ls.addNode(66));
+console.log(ls.toString());
 
 module.exports = LinkedList;
