@@ -1,7 +1,7 @@
 //一个linkedList 对象有两个属性 root和length
 function LinkedList(...values){
     if(values.length === 0){
-        this.root = null;
+        this.head = null;
         this.length = 0;
     }else {
         //根据输入的数据创建一个Linkendlist
@@ -21,7 +21,7 @@ function LinkedList(...values){
         });
 
         this.length = nodes.length;
-        this.root = nodes[0];
+        this.head = nodes[0];
 
     }
 }
@@ -34,7 +34,7 @@ LinkedList.prototype.addNode = function(value){
     //如果这个节点是第一个节点，把这个节点设置成root
     //如果这个节点不是第一个节点，则加入末尾
     if(this.length === 0){
-        this.root = new Node(value,null);
+        this.head = new Node(value,null);
     }else{
         this.lastNode().next = new Node(value,null);
     }
@@ -48,7 +48,7 @@ LinkedList.prototype.findNode = function(value){
     if(this.length === 0 ){
         return null;
     }else {
-        let current = this.root;
+        let current = this.head;
         for(let i=0;i<this.length;i++){
             if(current.value === value){
                 return current;
@@ -66,7 +66,7 @@ LinkedList.prototype.findNodes = function(value){
         return [];
     }else{
         let result = [];
-        let current = this.root;
+        let current = this.head;
         for(let i=0;i<this.length;i++){
             if(current.value === value){
                 result.push(current);
@@ -81,7 +81,7 @@ LinkedList.prototype.deleteNode = function(value){
     if(this.length === 0){
         return false;
     }else{
-        let current = this.root;
+        let current = this.head;
         for(let i=0;i<this.length-1;i++){
             //分情况讨论:
             //1. a:如果是头节点且value相等，则把root指针指向头结点的next,长度-1,然后return true; 否则进入b
@@ -89,7 +89,7 @@ LinkedList.prototype.deleteNode = function(value){
             //      （I） 下一个节点的值不匹配，进入下一轮
             //      (II)  下一个节点的值匹配，将当前节点的next指向下一个节点的next指针,长度-1,然后return true
             if(i===0 && current.value === value){
-                this.root = current.next;
+                this.head = current.next;
                 this.length--;
                 return true;
             }else if(current.next.value === value){
@@ -111,12 +111,12 @@ LinkedList.prototype.deleteNodes = function(value){
     }
     //当list不为空,遍历list,每找到一个匹配的Node,把这个value的
     let prev = null;
-    let current = this.root;
+    let current = this.head;
     let didDelete = false;
     while(current !== null){
         if(current.value === value){
             if(prev === null){
-                this.root = current.next;
+                this.head = current.next;
             }else{
                 prev.next = current.next;
             }
@@ -134,7 +134,7 @@ LinkedList.prototype.lastNode = function(){
   if(this.length === 0){
       return null;
   }else{
-      let last = this.root;
+      let last = this.head;
       while(last.next !== null){
           last = last.next;
       }
@@ -148,7 +148,7 @@ LinkedList.prototype.toString = function(){
       return "";
   }else{
       let str = "";
-      let current = this.root;
+      let current = this.head;
       for(let i=0;i<this.length;i++){
           //判断当前是否是最后一个Node
           if(i === this.length-1){
@@ -163,7 +163,18 @@ LinkedList.prototype.toString = function(){
 };
 //revert list
 LinkedList.prototype.reverse = function(){
-    
+    //list少于两个Nodes，什么都不做
+    if(this.length >= 2){
+        let prev = null;
+        let current = this.head;
+        while(current !== null){
+            this.head = current; // keep track of head
+            let temp = current.next;
+            current.next = prev;
+            prev = current;
+            current = temp;
+        }
+    }
 };
 
 module.exports = LinkedList;
