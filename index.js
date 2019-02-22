@@ -161,6 +161,23 @@ LinkedList.prototype.toString = function(){
       return str;
   }
 };
+//找到并且返回第一个value匹配的Node的下标,找不到则返回-1
+LinkedList.prototype.indexOf = function(value){
+    if(this.length === 0 ){
+        return -1;
+    }else {
+        let current = this.head;
+        for(let i=0;i<this.length;i++){
+            if(current.value === value){
+                return i;
+            }else if(!current.next){
+                return -1;
+            }else{
+                current = current.next;
+            }
+        }
+    }
+};
 //revert list
 LinkedList.prototype.reverse = function(){
     //list少于两个Nodes，什么都不做
